@@ -181,7 +181,13 @@ p { margin: 0; }
   gap: 10px;
   margin-bottom: 15px;
 }
-
+.item-photo {
+  display: block;
+  flex-shrink: 0;
+  width: 68px;
+  height: 82px;
+  object-fit: cover;
+  border-radius: 
 .metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -293,27 +299,6 @@ textarea { min-height: 85px; resize: vertical; }
   place-items: center;
   font-size: 23px;
 }
-
-/* Inventory costume photographs */
-.item-photo {
-  display: block;
-  flex-shrink: 0;
-  width: 68px;
-  height: 82px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 10px;
-  background: #edf4ed;
-  border: 1px solid var(--line);
-}
-
-@media (max-width: 600px) {
-  .item-photo {
-    width: 56px;
-    height: 70px;
-  }
-}
-
 
 .rule { height: 1px; background: var(--line); margin: 12px 0; }
 .alert { padding: 12px; border-radius: 10px; font-size: 13px; }
@@ -886,27 +871,25 @@ const NAV = [
 ];
 
 const inventory = [
- {
-  id:"CST-00124",
-  name:"Victorian Tailcoat",
-  category:"Period costume",
-  size:"M",
-  condition:"Good",
-  status:"On hire",
-  location:"HIRE-041",
-  due:"2026-10-28",
-  image:"https://media.istockphoto.com/id/108328579/photo/steampunk-man-sitting-against-damask-background.jpg?s=1024x1024&w=is&k=20&c=AbjxrSEua_hHkMRNSaqP8W4m0zEvcLoul6O9j-tjOOs="
-},
+  {
+    id:"CST-00124",
+    name:"Victorian Tailcoat",
+    category:"Period costume",
+    size:"M",
+    condition:"Good",
+    status:"On hire",
+    location:"HIRE-041",
+    due:"2026-10-28"
+  },
   {
     id:"CST-00125",
-    name:"Regency Coat",
+    name:"Regency Waistcoat",
     category:"Period costume",
     size:"L",
     condition:"Excellent",
     status:"Available",
     location:"Rack A03",
     due:""
-image:"https://images.unsplash.com/photo-1742591775376-ad206b1302b8?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00126",
@@ -917,7 +900,6 @@ image:"https://images.unsplash.com/photo-1742591775376-ad206b1302b8?q=80&w=627&a
     status:"Repair",
     location:"Workshop",
     due:""
-image:"https://images.unsplash.com/photo-1623792165505-b42b0c54372b?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00127",
@@ -928,18 +910,16 @@ image:"https://images.unsplash.com/photo-1623792165505-b42b0c54372b?q=80&w=1073&
     status:"On hire",
     location:"HIRE-042",
     due:"2026-11-03"
-image:"https://images.unsplash.com/photo-1735941724160-78d8ad8ccff1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00128",
-    name:"Armour",
+    name:"Royal Court Cape",
     category:"Royal costume",
     size:"One size",
     condition:"Needs cleaning",
     status:"Cleaning",
     location:"Cleaning room",
     due:""
-image:"https://images.unsplash.com/photo-1787484699717-0d6f1a86c2d9?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00129",
@@ -950,7 +930,6 @@ image:"https://images.unsplash.com/photo-1787484699717-0d6f1a86c2d9?q=80&w=735&a
     status:"Available",
     location:"Rack B01",
     due:""
-image:"https://images.unsplash.com/photo-1718278868317-2d7a14b46ebb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00130",
@@ -961,7 +940,6 @@ image:"https://images.unsplash.com/photo-1718278868317-2d7a14b46ebb?q=80&w=687&a
     status:"Available",
     location:"Drawer C04",
     due:""
-image:"https://plus.unsplash.com/premium_photo-1777135580633-a9a931d75a52?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00131",
@@ -972,7 +950,6 @@ image:"https://plus.unsplash.com/premium_photo-1777135580633-a9a931d75a52?q=80&w
     status:"On hire",
     location:"HIRE-041",
     due:"2026-10-28"
-image:"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00132",
@@ -983,7 +960,6 @@ image:"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=687&a
     status:"Available",
     location:"Rack D02",
     due:""
-image:"https://images.unsplash.com/photo-1731613157736-37ef61b6db15?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   },
   {
     id:"CST-00133",
@@ -994,9 +970,25 @@ image:"https://images.unsplash.com/photo-1731613157736-37ef61b6db15?q=80&w=687&a
     status:"Available",
     location:"Rack B05",
     due:""
-image:!https://images.unsplash.com/photo-1737483834886-fe98114edc6b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
   }
 ];
+
+const inventoryImages = {
+  "CST-00124": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00125": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00126": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00127": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00128": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00129": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00130": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00131": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00132": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=300&h=380&q=80",
+  "CST-00133": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=300&h=380&q=80"
+};
+
+inventory.forEach(item => {
+  item.image = inventoryImages[item.id] || "";
+});
 
 const bookings = [
   {
